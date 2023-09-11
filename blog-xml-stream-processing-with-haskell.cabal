@@ -1,0 +1,44 @@
+cabal-version:      3.0
+name:               blog-xml-stream-processing-with-haskell
+version:            0.1.0.0
+synopsis:           XML streaming examples
+license:            MIT
+author:             Martin Hoppenheit
+maintainer:         martin@hoppenheit.info
+build-type:         Simple
+extra-doc-files:    README.md
+
+common deps
+    build-depends:    base >= 4.18 && < 5,
+                      conduit ^>= 1.3,
+                      text ^>= 2.0,
+                      xml-conduit ^>= 1.9,
+                      xml-types ^>= 0.3
+    hs-source-dirs:   app
+    default-language: GHC2021
+    ghc-options:      -Wall
+
+executable read
+    import:         deps
+    main-is:        Read.hs
+    ghc-options:    -main-is Read
+
+executable read-nested
+    import:         deps
+    main-is:        ReadNested.hs
+    ghc-options:    -main-is ReadNested
+
+executable read-dom
+    import:         deps
+    main-is:        ReadDom.hs
+    ghc-options:    -main-is ReadDom
+
+executable write
+    import:         deps
+    main-is:        Write.hs
+    ghc-options:    -main-is Write
+
+executable transform
+    import:         deps
+    main-is:        Transform.hs
+    ghc-options:    -main-is Transform
